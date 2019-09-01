@@ -1,0 +1,26 @@
+{
+    "reportNoArgs" : "```Report incorrect ! Pour envoyer un report correct, il vous faut mettre le nom du joueur concerné, un titre, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
+    "ideaNoArgs": "```Idée incorrecte ! Pour envoyer une idée correcte, il vous faut mettre le nom du serveur concerné, un titre qui résume l'idée, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
+    "anError" : "```Vous ne pouvez pas écrire dans ce canal. Utilisez l'aide qui se trouve dans les messages épinglés.```",
+
+    "commandNotFound" : "Cette commande n'existe pas ! ",
+    "noPrefix" :"```Vous ne pouvez pas envoyer de message dans ce canal. Si vous vouliez envoyer une idée, un bug, ou un report l'aide se trouve dans les messages épinglés du canal en question.```" ,
+
+    "report1": "Alerte alerte ! Un mauvais garçon !",
+    "report2": "Tooum ! Le marteau va juger ce bougre !",
+    "report3": "Quelle punition la balance nous donnera ?",
+    "report4": "Ligotez moi ce malandrin !",
+    "report5": "Carton jaune pour le joueur francais ! Le prochain, c'est le rouge !",
+    "report6": "Emprisonnez moi ce malfrat !",
+    "report7": "*Siffle* Mais quel carton l'arbitre va t'il lui donner ???",
+    
+
+    "idea1": "Le diplomé nous partage son savoir !",
+    "idea2": "Vioonnn ! L'idée arrive à dos de crayon ! Extraordinaire !",
+    "idea3": "Taking it out of the box",
+    "idea4": "*Shcling* Son ampoule s'allume. (enfin!)",
+    "idea5": "*Tziit* Son cerveau s'est mis en route !",
+    "idea6": "Il nous offre gracieusement cette idée, mohh quel sain.",
+    "idea7": "*Click* Idée envoyée.",
+    "idea8": "Un cerveau dans une ampoule, elle même dans une boite, wait what ?!"
+}

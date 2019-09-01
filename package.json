@@ -1,0 +1,14 @@
+{
+  "name": "myrithbot",
+  "version": "1.0.0",
+  "description": "the myrith bot",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bobsmil3y",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
