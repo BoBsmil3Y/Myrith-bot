@@ -4,7 +4,7 @@ GitHub officiel du bot du serveur Discord Myrith.
 
 ## Commandes
 
-# Légende
+### Légende
 
 <> = Optionel
 ! = prefix
