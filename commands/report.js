@@ -3,7 +3,7 @@ module.exports.run = async (l, Discord, data, bot, message, args) => {
     const idReport = '605702979156181005';
 
     if (message.channel.id === idReport) {
-        if (args[1] != undefined && args[2] != undefined && args[3] != undefined) {
+        if (args[0] != undefined && args[1] != undefined && args[2] != undefined) {
             rdm = (getRandomInt(7) + 1);
 
             switch (rdm) {
@@ -33,18 +33,18 @@ module.exports.run = async (l, Discord, data, bot, message, args) => {
             const ReportEmbed = new Discord.RichEmbed()
                 .setColor('#ff5e57')
                 .setTitle('Raison :')
-                .setAuthor(message.member.displayName + ' a report ' + args[1], message.member.user.avatarURL)
-                .setDescription(args[2])
-                .addField('Description :', args[3])
+                .setAuthor(message.member.displayName + ' a report ' + args[0], message.member.user.avatarURL)
+                .setDescription(args[1])
+                .addField('Description :', args[2])
                 .attachFiles(['img/report/' + rdm + '.png'])
                 .setThumbnail('attachment://' + rdm + '.png')
                 .setTimestamp()
                 .setFooter('Myrith - ' + result, bot.user.avatarURL);
 
 
-            if (args[4] != undefined) {
-                if (args[4].includes('.png') || args[4].includes('.jpg') || args[4].includes('.jpeg')) {
-                    ReportEmbed.setImage(args[4]);
+            if (args[3] != undefined) {
+                if (args[3].includes('.png') || args[3].includes('.jpg') || args[3].includes('.jpeg')) {
+                    ReportEmbed.setImage(args[3]);
                 }
             }
 

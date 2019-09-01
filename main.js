@@ -20,6 +20,7 @@ bot.on("ready", () => {
 
 bot.login(config.token);
 
+
 // Event "on message" to send to commands files
 bot.on("message", async m => {
     if (m.author.bot) return;
@@ -56,83 +57,14 @@ bot.on("message", async m => {
     }
 });
 
+
+
 /*
 bot.on('message', async message => {
 
     let args = message.content.split("&");
     let sender = message.member;
 
-    
-    if (message.channel.name === RIdea) {
-
-        if (message.content.charAt(0) === prefix) {
-
-            if (args[1] != undefined && args[2] != undefined && args[3] != undefined) {
-                rdm = (getRandomInt(8) + 1);
-
-                switch (rdm) {
-                    case 1:
-                        result = l.idea1;
-                        break;
-                    case 2:
-                        result = l.idea2;
-                        break;
-                    case 3:
-                        result = l.idea3;
-                        break;
-                    case 4:
-                        result = l.idea4;
-                        break;
-                    case 5:
-                        result = l.idea5;
-                        break;
-                    case 6:
-                        result = l.idea6;
-                        break;
-                    case 7:
-                        result = l.idea7;
-                        break;
-                    case 8:
-                        result = l.idea8;
-                        break;
-                }
-
-                let n = data.total
-                console.log("n : " + n)
-                const IdeaEmbed = new Discord.RichEmbed()
-                    .setColor('#ffc048')
-                    .setTitle('Serveur :')
-                    .setAuthor(sender.displayName + ' annonce son idée, écoutez le !  Idée #' + n, sender.user.avatarURL)
-                    .setDescription(args[1])
-                    .addField('Idée :', args[2])
-                    .addField('Description :', args[3])
-                    .attachFiles(['img/idea/' + rdm + '.png'])
-                    .setThumbnail('attachment://' + rdm + '.png')
-                    .setTimestamp()
-                    .setFooter('Myrith - ' + result, bot.user.avatarURL);
-
-                message.channel.send(IdeaEmbed).then(async embedMessage => {
-                    await embedMessage.react('608273708725043258');
-                    await embedMessage.react('608273708628574222');
-                    await embedMessage.react('❌');
-                });
-
-
-                data.total = n + 1;
-                console.log("n : " + n)
-                message.delete();
-            } else {
-                //message.author.send(l.ideaNoArgs);
-                //message.delete();
-            }
-
-        } else {
-            //message.author.send(l.ideaNoPrefix);
-            //message.delete();
-        }
-
-
-    };
 
     if (message.channel.name === RBug) {
 
@@ -144,10 +76,10 @@ bot.on('message', async message => {
 */
 
 bot.on("messageReactionAdd", (reaction, user) => {
+    if (user.id === bot.user.id) return;
     if (
-        reaction.message.channel.name === RIdea &&
-        reaction.emoji.name === "❌" &&
-        user.id !== bot.user.id
+        reaction.message.channel.id === idIdea &&
+        reaction.emoji.name === "❌"
     ) {
         if (user.id === idBob) {
             //ajouter l'utilisateur (else if) pour qu'il puisse supprimer son idée
