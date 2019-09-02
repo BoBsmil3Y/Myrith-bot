@@ -161,4 +161,7 @@ TODO
         - Nombre de personnes sur le discord
         - Nombre de membres connectés discord
 
+    REACTION:
+        - Ajouter une réaction pour accepter les règles. (Myrith role: 605032955336851481)
+
 */
