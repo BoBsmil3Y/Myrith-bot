@@ -24,37 +24,39 @@ bot.login(config.token);
 // Event "on message" to send to commands files
 bot.on("message", async m => {
     if (m.author.bot) return;
+    if (m.channel.type === 'dm') return;
+
     if (m.content.charAt(0) !== prefix) {
-        if (
-            m.channel.id === idBug ||
-            m.channel.id === idIdea ||
-            m.channel.id === idReport
-        ) {
+        if (m.channel.id === idBug || m.channel.id === idIdea || m.channel.id === idReport) {
             m.author.send(l.noPrefix);
             m.delete();
         }
     }
 
-    const args = m.content.slice(config.prefix.length).split(" &");
-    const command = args
-        .shift()
-        .toLowerCase()
-        .replace("é", "e");
+    if (m.content.charAt(0) === prefix) {
+        const args = m.content.slice(config.prefix.length).split(" &");
+        const command = args
+            .shift()
+            .toLowerCase()
+            .replace("é", "e");
 
-    try {
-        let commandFile = require(`./commands/${command}.js`);
-        commandFile.run(l, Discord, data, bot, m, args);
-    } catch (error) {
-        const emojis = m.guild.emojis.get("608273720208785419");
-        const errorEmbed = new Discord.RichEmbed()
-            .setTitle(l.commandNotFound + emojis)
-            .setColor("#ff5e57");
+        try {
+            let commandFile = require(`./commands/${command}.js`);
+            commandFile.run(l, Discord, data, bot, m, args);
+        } catch (error) {
+            const emojis = m.guild.emojis.get("608273720208785419");
+            const errorEmbed = new Discord.RichEmbed()
+                .setTitle(l.commandNotFound + emojis)
+                .setColor("#ff5e57");
 
-        m.channel.send(errorEmbed).then(msg => {
-            msg.delete(5000);
-        });
-        m.delete();
+            m.channel.send(errorEmbed).then(msg => {
+                msg.delete(5000);
+            });
+            m.delete();
+        }
     }
+
+
 });
 
 
@@ -75,8 +77,28 @@ bot.on('message', async message => {
 });
 */
 
+bot.on("guildMemberAdd", (member) => {
+    try {
+        let commandFile = require(`./commands/statistique.js`);
+        commandFile.run(l, Discord, bot, member);
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+bot.on("guildMemberRemove", (member) => {
+    try {
+        let commandFile = require(`./commands/statistique.js`);
+        commandFile.run(l, Discord, bot, member);
+    } catch (error) {
+        console.error(error);
+    }
+
+});
+
 bot.on("messageReactionAdd", (reaction, user) => {
     if (user.id === bot.user.id) return;
+
     if (
         reaction.message.channel.id === idIdea &&
         reaction.emoji.name === "❌"
