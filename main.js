@@ -59,24 +59,6 @@ bot.on("message", async m => {
 
 });
 
-
-
-/*
-bot.on('message', async message => {
-
-    let args = message.content.split("&");
-    let sender = message.member;
-
-
-    if (message.channel.name === RBug) {
-
-
-
-    };
-
-});
-*/
-
 bot.on("guildMemberAdd", (member) => {
     try {
         let commandFile = require(`./commands/statistique.js`);
@@ -93,7 +75,15 @@ bot.on("guildMemberRemove", (member) => {
     } catch (error) {
         console.error(error);
     }
+});
 
+bot.emit("disconnect", (event) => {
+    try {
+        let commandFile = require(`./commands/statistique.js`);
+        commandFile.run(l, Discord, bot, event);
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 bot.on("messageReactionAdd", (reaction, user) => {
@@ -131,15 +121,6 @@ bot.on("messageReactionAdd", (reaction, user) => {
     }
 });
 
-/*
-
-STATISTIQUES
-
-bot.on('guildMemberAdd', member => {
-
-});
-
-*/
 
 /*
     
@@ -160,6 +141,7 @@ TODO
     STATS:
         - Nombre de personnes sur le discord
         - Nombre de membres connectés discord
+        - Ajouter events on connect and disconnect
 
     REACTION:
         - Ajouter une réaction pour accepter les règles. (Myrith role: 605032955336851481)

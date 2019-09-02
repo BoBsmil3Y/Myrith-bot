@@ -15,4 +15,6 @@ module.exports.run = async (l, Discord, bot, member) => {
     guild.channels.get("618040386459533352").setName("🤵\u2009\u2009•\u2009\u2009" + online + "\u2009\u2009en\u2009ligne.");
   }
 
+  console.log("Test \nEvent/member : " + member);
+
 };
