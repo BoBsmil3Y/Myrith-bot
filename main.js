@@ -16,6 +16,9 @@ bot.on("ready", () => {
     console.log("MyrithBot est en ligne !");
     bot.user.setActivity("play.myrith.fr");
     bot.user.setUsername("Myrith-bot");
+
+    let commandFile = require(`./commands/onlineStats.js`);
+    commandFile.run(bot);
 });
 
 bot.login(config.token);
@@ -59,33 +62,6 @@ bot.on("message", async m => {
 
 });
 
-bot.on("guildMemberAdd", (member) => {
-    try {
-        let commandFile = require(`./commands/statistique.js`);
-        commandFile.run(l, Discord, bot, member);
-    } catch (error) {
-        console.error(error);
-    }
-});
-
-bot.on("guildMemberRemove", (member) => {
-    try {
-        let commandFile = require(`./commands/statistique.js`);
-        commandFile.run(l, Discord, bot, member);
-    } catch (error) {
-        console.error(error);
-    }
-});
-
-bot.emit("disconnect", (event) => {
-    try {
-        let commandFile = require(`./commands/statistique.js`);
-        commandFile.run(l, Discord, bot, event);
-    } catch (error) {
-        console.error(error);
-    }
-});
-
 bot.on("messageReactionAdd", (reaction, user) => {
     if (user.id === bot.user.id) return;
 
@@ -121,6 +97,23 @@ bot.on("messageReactionAdd", (reaction, user) => {
     }
 });
 
+bot.on("guildMemberAdd", (member) => {
+    try {
+        let commandFile = require(`./commands/countStats.js`);
+        commandFile.run(l, Discord, bot, member);
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+bot.on("guildMemberRemove", (member) => {
+    try {
+        let commandFile = require(`./commands/countStats.js`);
+        commandFile.run(l, Discord, bot, member);
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 /*
     
