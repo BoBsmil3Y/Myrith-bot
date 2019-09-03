@@ -100,7 +100,7 @@ bot.on("messageReactionAdd", (reaction, user) => {
 bot.on("guildMemberAdd", (member) => {
     try {
         let commandFile = require(`./commands/countStats.js`);
-        commandFile.run(l, Discord, bot, member);
+        commandFile.run(bot);
     } catch (error) {
         console.error(error);
     }
@@ -109,7 +109,7 @@ bot.on("guildMemberAdd", (member) => {
 bot.on("guildMemberRemove", (member) => {
     try {
         let commandFile = require(`./commands/countStats.js`);
-        commandFile.run(l, Discord, bot, member);
+        commandFile.run(bot);
     } catch (error) {
         console.error(error);
     }
