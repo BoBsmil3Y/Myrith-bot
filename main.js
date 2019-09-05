@@ -17,8 +17,8 @@ bot.on("ready", () => {
     bot.user.setActivity("play.myrith.fr");
     bot.user.setUsername("Myrith-bot");
 
-    let commandFile = require(`./commands/onlineStats.js`);
-    commandFile.run(bot);
+    //let commandFile = require(`./commands/onlineStats.js`);
+    //commandFile.run(bot);
 });
 
 bot.login(config.token);
@@ -114,6 +114,14 @@ bot.on("guildMemberRemove", (member) => {
     }
 });
 
+bot.on('presenceUpdate', (oldMember, newMember) => {
+    try {
+        let commandFile = require(`./commands/onlineStats.js`);
+        commandFile.run(bot, oldMember, newMember);
+    } catch (error) {
+        console.error(error);
+    }
+});
 /*
     
 TODO
