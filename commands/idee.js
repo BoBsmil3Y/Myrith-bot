@@ -1,5 +1,7 @@
 module.exports.run = async (l, Discord, data, bot, m, args) => {
 
+    var fs = require('fs');
+    var data = JSON.parse(fs.readFileSync('Storage/data.json', 'utf8'));
     const idIdea = "605049684192395264";
 
     if (m.channel.id === idIdea) {
@@ -34,12 +36,12 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
                     break;
             }
 
-            let n = data.total
-            console.log("n : " + n)
+            if (!data.total) data.total = 1;
+
             const IdeaEmbed = new Discord.RichEmbed()
                 .setColor('#ffc048')
                 .setTitle('Serveur :')
-                .setAuthor(m.member.displayName + ' annonce son idée, écoutez le !  Idée #' + n, m.author.avatarURL)
+                .setAuthor(m.member.displayName + ' annonce son idée, écoutez le !  Idée #' + data.total, m.author.avatarURL)
                 .setDescription(args[0])
                 .addField('Idée :', args[1])
                 .addField('Description :', args[2])
@@ -55,8 +57,22 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
             });
 
 
-            data.total = n + 1;
-            console.log("n : " + n)
+
+            if (!data.total) data.total = 1;
+
+            if (!data.ideas) data.ideas = [];
+            data["ideas"].unshift({
+                "number": data.total,
+                "idea": args[1],
+                "id": m.author.id
+            });
+
+            data.total++;
+
+            fs.writeFile('Storage/data.json', JSON.stringify(data), (err) => {
+                if (err) console.error(err);
+            });
+
             m.delete();
         } else {
             //m.author.send(l.ideaNoArgs);

@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const config = require("./json/config.json");
 const l = require("./json/language.json");
-const data = require("./data/data.json");
+const data = require("./Storage/data.json");
 
 const bot = new Discord.Client();
 const prefix = config.prefix;
@@ -42,7 +42,6 @@ bot.on("message", async m => {
             .shift()
             .toLowerCase()
             .replace("é", "e");
-
         try {
             let commandFile = require(`./commands/${command}.js`);
             commandFile.run(l, Discord, data, bot, m, args);
