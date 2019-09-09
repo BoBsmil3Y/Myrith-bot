@@ -16,9 +16,6 @@ bot.on("ready", () => {
     console.log("MyrithBot est en ligne !");
     bot.user.setActivity("play.myrith.fr");
     bot.user.setUsername("Myrith-bot");
-
-    //let commandFile = require(`./commands/onlineStats.js`);
-    //commandFile.run(bot);
 });
 
 bot.login(config.token);
@@ -28,6 +25,7 @@ bot.login(config.token);
 bot.on("message", async m => {
     if (m.author.bot) return;
     if (m.channel.type === 'dm') return;
+    if (m.content.includes('onlineStats') || m.content.includes('countStats')) return m.delete();
 
     if (m.content.charAt(0) !== prefix) {
         if (m.channel.id === idBug || m.channel.id === idIdea || m.channel.id === idReport) {
@@ -37,11 +35,19 @@ bot.on("message", async m => {
     }
 
     if (m.content.charAt(0) === prefix) {
-        const args = m.content.slice(config.prefix.length).split(" &");
+
+        const args = (m.content.slice(1).split(" ").shift() === "idée" ||
+            m.content.slice(1).split(" ").shift() === "bug" ||
+            m.content.slice(1).split(" ").shift() === "report") ? m.content.slice(config.prefix.length).split(" &") : m.content.slice(config.prefix.length).split(" ");
+
+        console.log(args);
+
         const command = args
             .shift()
             .toLowerCase()
             .replace("é", "e");
+
+        console.log(command);
         try {
             let commandFile = require(`./commands/${command}.js`);
             commandFile.run(l, Discord, data, bot, m, args);
@@ -122,26 +128,28 @@ bot.on('presenceUpdate', (oldMember, newMember) => {
         console.error(error);
     }
 });
+
 /*
     
 TODO
 
     EMBED:
 
+        IDEA:
         - Send DM to author of the idea when it's refuse
 
-
+        IDEA / REPORT / BUG : 
         - Add a reaction to delete it
-        - When delete, send a message to say we have done the job
+        - Add a reaction to approve it
         
+        BUG / REPORT:
+        -When delete, send a message to say we have done the job
         
+        BUG :
         - Embed for bug issue
 
-    
-    STATS:
-        - Nombre de personnes sur le discord
-        - Nombre de membres connectés discord
-        - Ajouter events on connect and disconnect
+    PURGE
+        - !purge <number>
 
     REACTION:
         - Ajouter une réaction pour accepter les règles. (Myrith role: 605032955336851481)
