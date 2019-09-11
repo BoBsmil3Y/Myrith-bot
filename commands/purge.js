@@ -26,3 +26,6 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
   };
 
 };
+
+
+// Ne reconnait pas m.member dans ce fichier. Dans le main oui

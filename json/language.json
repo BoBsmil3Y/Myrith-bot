@@ -3,6 +3,7 @@
     "purgeError": "```Veuillez indiquer un nombre entre 1 et 100.```",
     "purgeNotAll": "```Le seul argument possible autre qu'un nombre est 'all'.```",
     "reportNoArgs": "```Report incorrect ! Pour envoyer un report correct, il vous faut mettre le nom du joueur concerné, un titre, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
+    "deleteIdea": "```Tu as bien supprimé ton idée```",
     "ideaNoArgs": "```Idée incorrecte ! Pour envoyer une idée correcte, il vous faut mettre le nom du serveur concerné, un titre qui résume l'idée, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
     "anError": "```Vous ne pouvez pas écrire dans ce canal. Utilisez l'aide qui se trouve dans les messages épinglés.```",
 
@@ -18,12 +19,13 @@
     "report7": "*Siffle* Mais quel carton l'arbitre va t'il lui donner ???",
 
 
-    "idea1": "Le diplomé nous partage son savoir !",
-    "idea2": "Vioonnn ! L'idée arrive à dos de crayon ! Extraordinaire !",
-    "idea3": "Taking it out of the box",
-    "idea4": "*Shcling* Son ampoule s'allume. (enfin!)",
-    "idea5": "*Tziit* Son cerveau s'est mis en route !",
-    "idea6": "Il nous offre gracieusement cette idée, mohh quel sain.",
-    "idea7": "*Click* Idée envoyée.",
-    "idea8": "Un cerveau dans une ampoule, elle même dans une boite, wait what ?!"
+    "idea1": "Un cerveau dans une ampoule, elle même dans une boite, wait what ?!",
+    "idea2": "Le diplomé nous partage son savoir !",
+    "idea3": "Vioonnn ! L'idée arrive à dos de crayon ! Extraordinaire !",
+    "idea4": "Taking it out of the box",
+    "idea5": "*Shcling* Son ampoule s'allume. (enfin!)",
+    "idea6": "*Tziit* Son cerveau s'est mis en route !",
+    "idea7": "Il nous offre gracieusement cette idée, mohh quel sain.",
+    "idea8": "*Click* Idée envoyée."
+
 }
