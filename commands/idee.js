@@ -16,7 +16,7 @@ module.exports.run = async (l, Discord, bot, m, args) => {
             const IdeaEmbed = new Discord.RichEmbed()
                 .setColor('#ffc048')
                 .setTitle('Serveur :')
-                .setAuthor(m.member.displayName + ' annonce son idée, écoutez le !  Idée #' + data.total, m.author.avatarURL)
+                .setAuthor(m.author.username + ' annonce son idée, écoutez le !  Idée #' + data.total, m.author.avatarURL)
                 .setDescription(args[0])
                 .addField('Idée :', args[1])
                 .addField('Description :', args[2])
