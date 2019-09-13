@@ -1,8 +1,11 @@
 module.exports.run = async (l, Discord, bot, m, args) => {
 
+
     var fs = require('fs');
     var data = JSON.parse(fs.readFileSync('Storage/ideaData.json', 'utf8'));
     const idIdea = "605049684192395264";
+    const checkEmoji = "620918371596369940";
+    const crossEmoji = "621624110941995019";
 
     if (m.channel.id === idIdea) {
 
@@ -49,8 +52,8 @@ module.exports.run = async (l, Discord, bot, m, args) => {
 
                 await embedMessage.react('608273708725043258');
                 await embedMessage.react('608273708628574222');
-                await embedMessage.react('☑');
-                await embedMessage.react('❌');
+                await embedMessage.react(checkEmoji);
+                await embedMessage.react(crossEmoji);
 
             });
 

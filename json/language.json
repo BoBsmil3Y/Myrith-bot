@@ -9,6 +9,8 @@
     "wantToDeleteFooter": "Cliquez sur la réaction pour supprimer ou annuler.",
     "deleteIdea": "```Tu as bien supprimé ton idée```",
     "suppCancel": "```Suppression annulée```",
+    "cantValidate": "```Tu ne peux pas valider les idées !```",
+    "cantDelete": "```Tu ne peux pas supprimer les idées des autres !```",
     "anError": "```Vous ne pouvez pas écrire dans ce canal. Utilisez l'aide qui se trouve dans les messages épinglés.```",
 
     "commandNotFound": "Cette commande n'existe pas ! ",

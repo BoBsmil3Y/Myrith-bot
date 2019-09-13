@@ -12,6 +12,7 @@ const idBug = "605701379310485514";
 const idReglement = "605034442842439700";
 const roleMyrithiens = "605032955336851481";
 
+
 bot.on("ready", () => {
     console.log("MyrithBot est en ligne !");
     bot.user.setActivity("#𝘗𝘓𝘈𝘠.𝘔𝘠𝘙𝘐𝘛𝘏.𝘍𝘙 🥳");
