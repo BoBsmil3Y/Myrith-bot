@@ -3,7 +3,10 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
   const idOwnerRole = "605040385173094410";
   const idAdminRole = "605022321496948757";
 
+  console.log(m);
+
   if (!m.member.highestRole.id === idOwnerRole || !m.member.highestRole.id === idAdminRole) return m.channel.send((l.noPermission));
+
 
   if (isNaN(args[0])) {
     if (args[0] === "all") {
@@ -26,6 +29,3 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
   };
 
 };
-
-
-// Ne reconnait pas m.member dans ce fichier. Dans le main oui

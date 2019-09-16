@@ -1,4 +1,4 @@
-module.exports.run = async (l, Discord, bot, m, args) => {
+module.exports.run = async (l, Discord, data, bot, m, args) => {
 
 
     var fs = require('fs');
@@ -73,12 +73,3 @@ module.exports.run = async (l, Discord, bot, m, args) => {
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
-
-/*
-
-Sauvegarder l'id du message et puis le fetch  https://discord.js.org/#/docs/main/stable/class/DMChannel?scrollTo=fetchMessage
-channel.fetchMessage('99539446449315840')
-.then(message => console.log(message.content))
-    .catch(console.error);
-
-*/

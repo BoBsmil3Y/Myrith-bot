@@ -1,13 +1,12 @@
-module.exports.run = async (l, Discord, bot, m, args) => {
+module.exports.run = async (l, Discord, data, bot, m, args) => {
 
-  var fs = require('fs');
-  var data = JSON.parse(fs.readFileSync('Storage/ideaData.json', 'utf8'));
+  const embed = new Discord.RichEmbed()
+    .setColor('#0fbcf9')
+    .setTitle('Règles du serveur Discord')
+    .attachFiles(['img/Rules.jpg'])
+    .setImage('attachment://Rules.jpg')
+    .setTimestamp()
+    .setFooter('Myrith - règlement', bot.user.avatarURL);
 
-  console.log();
-  for (let element of data.ideas) {
-    if (element.idMessage === "620982388700479499") {
-      m.channel.fetchMessages()
-    }
-  }
-
+  m.channel.send(embed);
 }

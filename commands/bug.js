@@ -1,4 +1,4 @@
-module.exports.run = async (l, Discord, data, bot, message, args) => {
+module.exports.run = async (l, Discord, data, bot, m, args) => {
 
     console.log("test");
 

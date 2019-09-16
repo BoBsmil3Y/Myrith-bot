@@ -5,12 +5,10 @@ const l = require("./json/language.json");
 const bot = new Discord.Client();
 const prefix = config.prefix;
 
-const idBob = "318004221809131521";
 const idReport = "605702979156181005";
 const idIdea = "605049684192395264";
 const idBug = "605701379310485514";
 const idReglement = "605034442842439700";
-const roleMyrithiens = "605032955336851481";
 
 
 bot.on("ready", () => {
@@ -78,7 +76,7 @@ bot.on("message", async m => {
 
         try {
             let commandFile = require(`./commands/${command}.js`);
-            commandFile.run(l, Discord, bot, m, args);
+            commandFile.run(l, Discord, data, bot, m, args);
         } catch (error) {
             const emojis = m.guild.emojis.get("608273720208785419");
             const errorEmbed = new Discord.RichEmbed().setTitle(l.commandNotFound + emojis).setColor("#ff5e57");
@@ -97,14 +95,28 @@ bot.on("messageReactionAdd", (reaction, user) => {
     if (reaction.message.channel.id === idIdea) {
         let commandFile = require(`./handler/reactionIdea.js`);
         commandFile.run(l, Discord, bot, reaction, user);
-    };
+    } else if (reaction.message.channel.id === idReglement) {
+        let commandFile = require(`./handler/reactionRules.js`);
+        commandFile.run(l, Discord, bot, reaction, user);
+    }
 
+});
+
+bot.on("messageReactionRemove", (reaction, user) => {
+    if (user.id === bot.user.id) return;
+
+    console.log("event")
+    if (reaction.message.channel.id === idReglement) {
+        console.log("envoyé")
+        let commandFile = require(`./handler/reactionRules.js`);
+        commandFile.run(l, Discord, bot, reaction, user);
+    }
 });
 
 bot.on("guildMemberAdd", member => {
     try {
-        let commandFile = require(`./handler/countStats.js`);
-        commandFile.run(bot);
+        let commandFile = require(`./handler/guildMemberRemove.js`);
+        commandFile.run(bot, member);
     } catch (error) {
         console.error(error);
     }
@@ -112,7 +124,7 @@ bot.on("guildMemberAdd", member => {
 
 bot.on("guildMemberRemove", member => {
     try {
-        let commandFile = require(`./handler/countStats.js`);
+        let commandFile = require(`./handler/guildMemberRemove.js`);
         commandFile.run(bot);
     } catch (error) {
         console.error(error);
