@@ -72,7 +72,7 @@ bot.on("message", async m => {
             m.content.slice(config.prefix.length).split(" & ") :
             m.content.slice(config.prefix.length).split(" ");
 
-        const command = args.shift().toLowerCase().replace("é", "e");
+        const command = args.shift().toLowerCase().replace("é", "e").replace("è", "e");
 
         try {
             let commandFile = require(`./commands/${command}.js`);
@@ -105,9 +105,7 @@ bot.on("messageReactionAdd", (reaction, user) => {
 bot.on("messageReactionRemove", (reaction, user) => {
     if (user.id === bot.user.id) return;
 
-    console.log("event")
     if (reaction.message.channel.id === idReglement) {
-        console.log("envoyé")
         let commandFile = require(`./handler/reactionRules.js`);
         commandFile.run(l, Discord, bot, reaction, user);
     }

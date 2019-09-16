@@ -6,6 +6,5 @@ module.exports.run = async (bot, member) => {
   guild.channels.get("618040080623337478").setName(`🔥\u2009\u2009•\u2009\u2009${guild.memberCount}\u2009\u2009membres.`);
 
   member.removeRole(myrithiens).catch(console.error);
-  //Envoi d'un embed comme quoi il quitte le serveur ?
 
 };

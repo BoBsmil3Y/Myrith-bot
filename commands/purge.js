@@ -3,8 +3,6 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
   const idOwnerRole = "605040385173094410";
   const idAdminRole = "605022321496948757";
 
-  console.log(m);
-
   if (!m.member.highestRole.id === idOwnerRole || !m.member.highestRole.id === idAdminRole) return m.channel.send((l.noPermission));
 
 
@@ -13,13 +11,19 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
       const fetched = await m.channel.fetchMessages();
       m.channel.bulkDelete(fetched)
         .catch(error => m.reply(`Couldn't delete messages because of: ${error}`));
-    } else return m.channel.send((l.purgeNotAll));
+    } else return m.reply(l.purgeNotAll).then(msg => {
+      msg.delete(3000);
+      m.delete();
+    });
 
   } else {
 
     const deleteCount = parseInt(args[0], 10);
 
-    if (!deleteCount || deleteCount < 1 || deleteCount > 100) return m.channel.send((l.purgeError));
+    if (!deleteCount || deleteCount < 1 || deleteCount > 100) return m.reply(l.purgeError).then(msg => {
+      msg.delete(3000);
+      m.delete();;
+    });
 
     const fetched = await m.channel.fetchMessages({
       limit: deleteCount + 1
