@@ -1,11 +1,11 @@
 module.exports.run = async (l, Discord, data, bot, m, args) => {
 
-
     var fs = require('fs');
     var data = JSON.parse(fs.readFileSync('Storage/ideaData.json', 'utf8'));
     const idIdea = "605049684192395264";
     const checkEmoji = "620918371596369940";
     const crossEmoji = "621624110941995019";
+
 
     if (m.channel.id === idIdea) {
 

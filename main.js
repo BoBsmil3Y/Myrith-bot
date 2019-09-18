@@ -10,6 +10,8 @@ const idIdea = "605049684192395264";
 const idBug = "605701379310485514";
 const idReglement = "605034442842439700";
 
+var fs = require("fs");
+var data = JSON.parse(fs.readFileSync("Storage/ideaData.json", "utf8"));
 
 bot.on("ready", () => {
     console.log("MyrithBot est en ligne !");
@@ -53,10 +55,7 @@ bot.on("raw", async event => {
     bot.emit(events[event.t], reaction, user);
 });
 
-var fs = require("fs");
-var data = JSON.parse(fs.readFileSync("Storage/ideaData.json", "utf8"));
 
-// Event "on message" to send to commands files
 bot.on("message", async m => {
     if (m.author.bot) return;
     if (m.channel.type === "dm") return;

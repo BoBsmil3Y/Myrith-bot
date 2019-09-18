@@ -18,14 +18,15 @@
     "commandNotFound": "Cette commande n'existe pas ! ",
     "noPrefix": "```Vous ne pouvez pas envoyer de message dans ce canal. Si vous vouliez envoyer une idée, un bug, ou un report l'aide se trouve dans les messages épinglés du canal en question.```",
 
-    "report1": "Alerte alerte ! Un mauvais garçon !",
-    "report2": "Tooum ! Le marteau va juger ce bougre !",
-    "report3": "Quelle punition la balance nous donnera ?",
-    "report4": "Ligotez moi ce malandrin !",
-    "report5": "Carton jaune pour le joueur francais ! Le prochain, c'est le rouge !",
-    "report6": "Emprisonnez moi ce malfrat !",
-    "report7": "*Siffle* Mais quel carton l'arbitre va t'il lui donner ???",
+    "invalidUrl": "```L'image n'est pas valide ! Il faut que l'image soit hébergé sur un site et nous envoyez le lien donné (ex: noelshack, imgur ...).```",
 
+    "report1": "*Siffle* Mais quel carton l'arbitre va t'il lui donner ???",
+    "report2": "Alerte alerte ! Un mauvais garçon !",
+    "report3": "Tooum ! Le marteau va juger ce bougre !",
+    "report4": "Quelle punition la balance nous donnera ?",
+    "report5": "Ligotez moi ce malandrin !",
+    "report6": "Carton jaune pour le joueur francais ! Le prochain, c'est le rouge !",
+    "report7": "Emprisonnez moi ce malfrat !",
 
     "idea1": "Un cerveau dans une ampoule, elle même dans une boite, wait what ?!",
     "idea2": "Le diplomé nous partage son savoir !",
