@@ -8,7 +8,9 @@
 
     "ideaNoArgs": "```Idée incorrecte ! Pour envoyer une idée correcte, il vous faut mettre le nom du serveur concerné, un titre qui résume l'idée, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
     "wantToDelete": "Voulez-vous vraiment supprimer votre idée ?",
+    "wantToDeleteReport": "Voulez-vous vraiment supprimer votre report ?",
     "wantToDeleteFooter": "Cliquez sur la réaction pour supprimer ou annuler.",
+    "deleteReport": "```Tu as bien supprimé ton report```",
     "deleteIdea": "```Tu as bien supprimé ton idée```",
     "suppCancel": "```Suppression annulée```",
     "cantValidate": "```Tu ne peux pas valider les idées !```",

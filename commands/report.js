@@ -40,9 +40,9 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
 
                 if (!data.total) data.total = 1;
 
-                if (!data.ideas) data.report = [];
+                if (!data.reports) data.reports = [];
 
-                data["report"].unshift({
+                data["reports"].unshift({
                     "idMessage": embedMessage.id,
                     "number": data.total,
                     "playerReport": args[0],
