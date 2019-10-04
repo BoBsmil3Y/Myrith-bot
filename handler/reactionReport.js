@@ -8,79 +8,87 @@ module.exports.run = async (l, Discord, bot, reaction, user) => {
   const crossEmoji = "621624110941995019";
 
   if (reaction.emoji.id === crossEmoji) {
-    if (user.id === adminId[0] || user.id === adminId[1] || user.id === adminId[2]) {
+    if (reaction.message.embeds[0]) {
 
-      reaction.message.delete();
+      if (reaction.message.embeds[0].title !== l.wantToDeleteReport) {
 
-    } else {
+        if (user.id === adminId[0] || user.id === adminId[1] || user.id === adminId[2]) {
 
-      var data = JSON.parse(fs.readFileSync("Storage/reportData.json", "utf8"));
+          reaction.message.delete();
 
+        } else {
 
-      for (let el of data.reports) {
-        if (el.idMessage === reaction.message.id) {
-          if (el.idAuthor === user.id) {
-            bot.fetchUser(el.idAuthor).then(async u => {
-              //Création de l'embed pour confirmer ou non la suppression
-              let embedF = await reaction.message.channel.send(
-                confirmationEmbed
-              );
-              await embedF.react(checkEmoji);
-              await embedF.react(crossEmoji);
+          var data = JSON.parse(fs.readFileSync("Storage/reportData.json", "utf8"));
 
-              const reactions = await embedF.awaitReactions(
-                (reaction, user) => user.id === u.id && (reaction.emoji.id === checkEmoji || reaction.emoji.id === crossEmoji), {
-                  max: 3,
-                  time: 4000
-                }
-              );
+          for (let el of data.reports) {
+            if (el.idMessage === reaction.message.id) {
+              if (el.idAuthor === user.id) {
+                bot.fetchUser(el.idAuthor).then(async u => {
+                  //Création de l'embed pour confirmer ou non la suppression
+                  let embedF = await reaction.message.channel.send(
+                    confirmationEmbed
+                  );
+                  await embedF.react(checkEmoji);
+                  await embedF.react(crossEmoji);
 
-              if (reactions.get(checkEmoji)) {
-                user.send(l.deleteReport);
-                embedF.delete();
-                reaction.message.delete();
-              } else if (reactions.get(crossEmoji)) {
-                user.send(l.suppCancel);
-                embedF.delete();
+                  const reactions = await embedF.awaitReactions(
+                    (reaction, user) => user.id === u.id && (reaction.emoji.id === checkEmoji || reaction.emoji.id === crossEmoji), {
+                      max: 3,
+                      time: 4000
+                    }
+                  );
+
+                  if (reactions.get(checkEmoji)) {
+                    user.send(l.deleteReport);
+                    embedF.delete();
+                    reaction.message.delete();
+                  } else if (reactions.get(crossEmoji)) {
+                    user.send(l.suppCancel);
+                    embedF.delete();
+                    reaction.message.reactions.forEach(reaction =>
+                      reaction.remove(user.id)
+                    );
+                  } else {
+                    embedF.delete();
+                  }
+                });
+              } else {
+                user.send(l.cantDelete);
                 reaction.message.reactions.forEach(reaction =>
                   reaction.remove(user.id)
                 );
               }
-            });
-          } else {
-            user.send(l.cantDelete);
-            reaction.message.reactions.forEach(reaction =>
-              reaction.remove(user.id)
-            );
+            }
           }
         }
+      } else {
+        reaction.remove(user.id)
       }
-
-
     }
 
 
+
+
   } else if (reaction.emoji.id === checkEmoji) {
-    console.log("reaction check");
+
     if (
       user.id === adminId[0] ||
       user.id === adminId[1] ||
       user.id === adminId[2]
     ) {
-      var data = JSON.parse(fs.readFileSync("Storage/ideaData.json", "utf8"));
-      console.log("admin");
+      var data = JSON.parse(fs.readFileSync("Storage/reportData.json", "utf8"));
+
       for (let el of data.reports) {
         if (el.idMessage === reaction.message.id) {
           let g = bot.guilds.get("605021521467146279");
           let memberOfReport = await g.fetchMember(el.idAuthor);
 
-          console.log("membre ok");
-
           const embed = new Discord.RichEmbed()
             .setColor("#0be881")
-            .setAuthor("Merci " + memberOfReport.nickname + " pour ton report !", bot.user.avatarURL)
-            .setTitle("Report : " + el.title)
-            .setDescription("Le joueur reporté à subit une sanction en rapport avec ton report.")
+            .setAuthor("Merci " + memberOfReport.user.username + " pour ton report !", bot.user.avatarURL)
+            .setTitle("Report : ")
+            .setDescription(el.title)
+            .addField("Le joueur a subit une sanction en rapport avec ton report.", "Ce message confirme que ton report nous a servit !")
             .setTimestamp();
 
           reaction.message.delete();
@@ -88,8 +96,12 @@ module.exports.run = async (l, Discord, bot, reaction, user) => {
         }
       }
     } else {
-      user.send(l.cantValidate);
-      reaction.message.reactions.forEach(reaction => reaction.remove(user.id));
+      if (reaction.message.embeds[0]) {
+        if (reaction.message.embeds[0].title !== l.wantToDeleteReport) {
+          user.send(l.cantValidateReport);
+          reaction.message.reactions.forEach(reaction => reaction.remove(user.id));
+        }
+      }
     }
   }
 };

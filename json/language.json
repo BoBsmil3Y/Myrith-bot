@@ -14,6 +14,7 @@
     "deleteIdea": "```Tu as bien supprimé ton idée```",
     "suppCancel": "```Suppression annulée```",
     "cantValidate": "```Tu ne peux pas valider les idées !```",
+    "cantValidateReport": "```Tu ne peux pas valider les reports !```",
     "cantDelete": "```Tu ne peux pas supprimer les idées des autres !```",
     "anError": "```Vous ne pouvez pas écrire dans ce canal. Utilisez l'aide qui se trouve dans les messages épinglés.```",
 

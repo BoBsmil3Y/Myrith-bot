@@ -60,6 +60,8 @@ module.exports.run = async (l, Discord, bot, reaction, user) => {
                 reaction.message.reactions.forEach(reaction =>
                   reaction.remove(user.id)
                 );
+              } else {
+                embedF.delete();
               }
             });
           } else {

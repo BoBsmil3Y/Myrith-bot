@@ -38,20 +38,16 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
                 await embedMessage.react(checkEmoji);
                 await embedMessage.react(crossEmoji);
 
-                if (!data.total) data.total = 1;
 
                 if (!data.reports) data.reports = [];
 
                 data["reports"].unshift({
                     "idMessage": embedMessage.id,
-                    "number": data.total,
                     "playerReport": args[0],
                     "title": args[1],
-                    "description": args[2],
                     "idAuthor": m.author.id
                 });
 
-                data.total++;
 
                 fs.writeFile('Storage/reportData.json', JSON.stringify(data), (err) => {
                     if (err) console.error(err);
