@@ -1,25 +1,33 @@
 {
     "noPermission": "```Tu n'as pas la permission d'effectuer cette commande !```",
-    "purgeError": "```Veuillez indiquer un nombre entre 1 et 100.```",
-    "purgeNotAll": "```Le seul argument possible autre qu'un nombre est 'all'.```",
-    "reportNoArgs": "```Report incorrect ! Pour envoyer un report correct, il vous faut mettre le nom du joueur concerné, un titre, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
+    "noPrefix": "```Vous ne pouvez pas envoyer de message dans ce canal. Si vous vouliez envoyer une idée, un bug, ou un report l'aide se trouve dans les messages épinglés du canal en question.```",
+    "anError": "```Vous ne pouvez pas écrire dans ce canal. Utilisez l'aide qui se trouve dans les messages épinglés.```",
 
     "alreadyMyrithiens": "```Tu es déjà Myrithiens ! Pas la peine de t'acharner sur cette réaction !```",
 
+    "purgeError": "```Veuillez indiquer un nombre entre 1 et 100.```",
+    "purgeNotAll": "```Le seul argument possible autre qu'un nombre est 'all'.```",
+
+    "reportNoArgs": "```Report incorrect ! Pour envoyer un report correct, il vous faut mettre le nom du joueur concerné, un titre, et une description qui sert d'explication au minimum.  Vous pouvez ajouter le lien d'un screen préalablement hébergé sur un site. Regarder dans les messages épinglés pour plus d'aide.```",
+
+    "bugNoArgs": "```Bug incorrect ! Pour envoyer un bug correct, il vous faut mettre le nom du serveur concerné, un titre, et une description qui sert d'explication au minimum. Vous pouvez ajouter le lien d'un screen préalablement hébergé sur un site. Regarder dans les messages épinglés pour plus d'aide.```",
+
     "ideaNoArgs": "```Idée incorrecte ! Pour envoyer une idée correcte, il vous faut mettre le nom du serveur concerné, un titre qui résume l'idée, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
+
     "wantToDelete": "Voulez-vous vraiment supprimer votre idée ?",
     "wantToDeleteReport": "Voulez-vous vraiment supprimer votre report ?",
+    "wantToDeleteBug": "Voulez-vous vraiment supprimer votre bug ?",
     "wantToDeleteFooter": "Cliquez sur la réaction pour supprimer ou annuler.",
     "deleteReport": "```Tu as bien supprimé ton report```",
     "deleteIdea": "```Tu as bien supprimé ton idée```",
+    "deleteBug": "```Tu as bien supprimé ton bug```",
     "suppCancel": "```Suppression annulée```",
     "cantValidate": "```Tu ne peux pas valider les idées !```",
     "cantValidateReport": "```Tu ne peux pas valider les reports !```",
     "cantDelete": "```Tu ne peux pas supprimer les idées des autres !```",
-    "anError": "```Vous ne pouvez pas écrire dans ce canal. Utilisez l'aide qui se trouve dans les messages épinglés.```",
+
 
     "commandNotFound": "Cette commande n'existe pas ! ",
-    "noPrefix": "```Vous ne pouvez pas envoyer de message dans ce canal. Si vous vouliez envoyer une idée, un bug, ou un report l'aide se trouve dans les messages épinglés du canal en question.```",
 
     "invalidUrl": "```L'image n'est pas valide ! Il faut que l'image soit hébergé sur un site et nous envoyez le lien donné (ex: noelshack, imgur ...).```",
 
@@ -38,6 +46,14 @@
     "idea5": "*Shcling* Son ampoule s'allume. (enfin!)",
     "idea6": "*Tziit* Son cerveau s'est mis en route !",
     "idea7": "Il nous offre gracieusement cette idée, mohh quel sain.",
-    "idea8": "*Click* Idée envoyée."
+    "idea8": "*Click* Idée envoyée.",
+
+    "bug1": "Un bug c'est infiltré dans nos serveurs !",
+    "bug2": "Hmmm... 01101111 01110101 01100011 01101000",
+    "bug3": "Cherchons ce qui cause tout ce raffut",
+    "bug4": "Bip boup bip bip boup",
+    "bug5": "*Scrounch Scrounch Scrounch*",
+    "bug6": "Oulah, un panneau rouge, c'est forcément mauvais signe !",
+    "bug7": "*Doum doum doum* Une menace a été détecté !"
 
 }

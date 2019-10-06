@@ -30,8 +30,6 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
 
             m.channel.send(IdeaEmbed).then(async embedMessage => {
 
-                if (!data.total) data.total = 1;
-
                 if (!data.ideas) data.ideas = [];
 
                 data["ideas"].unshift({

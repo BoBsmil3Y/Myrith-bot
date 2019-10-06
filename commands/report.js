@@ -9,7 +9,7 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
 
     if (m.channel.id === idReport) {
         if (args[0] != undefined && args[1] != undefined && args[2] != undefined) {
-            rdm = (getRandomInt(6));
+            rdm = getRandomInt(7);
 
             let arr = [l.report1, l.report2, l.report3, l.report4, l.report5, l.report6, l.report7, l.report8];
 
