@@ -28,16 +28,18 @@ const events = {
 bot.on("raw", async event => {
   if (!events.hasOwnProperty(event.t)) return;
 
-  const { d: data } = event;
+  const {
+    d: data
+  } = event;
   const user = bot.users.get(data.user_id);
   const channel = bot.channels.get(data.channel_id) || (await user.createDM());
 
   if (channel.messages.has(data.message_id)) return;
 
   const message = await channel.fetchMessage(data.message_id);
-  const emojiKey = data.emoji.id
-    ? `${data.emoji.name}:${data.emoji.id}`
-    : data.emoji.name;
+  const emojiKey = data.emoji.id ?
+    `${data.emoji.name}:${data.emoji.id}` :
+    data.emoji.name;
   let reaction = message.reactions.get(emojiKey);
 
   if (!reaction) {
@@ -59,6 +61,7 @@ bot.on("message", async m => {
   if (m.content.includes("onlineStats") || m.content.includes("countStats"))
     return m.delete();
 
+
   if (m.content.charAt(0) !== prefix) {
     if (m.channel.id === idBug || m.channel.id === idIdea || m.channel.id === idReport) {
       m.author.send(l.noPrefix);
@@ -67,7 +70,7 @@ bot.on("message", async m => {
   } else {
     const args =
       m.content.slice(1).split(" ").shift() === "idée" ||
-      m.content.slice(1).split(" ").shift() === "bug" || 
+      m.content.slice(1).split(" ").shift() === "bug" ||
       m.content.slice(1).split(" ").shift() === "report" ? m.content.slice(config.prefix.length).split(" & ") : m.content.slice(config.prefix.length).split(" ");
 
     const command = args.shift().toLowerCase().replace("é", "e").replace("è", "e");
