@@ -93,6 +93,9 @@ bot.on("messageReactionAdd", (reaction, user) => {
   } else if (reaction.message.channel.id === idReport) {
     let commandFile = require(`./handler/reactionReport.js`);
     commandFile.run(l, Discord, bot, reaction, user);
+  } else if (reaction.message.channel.id === idBug) {
+    let commandFile = require(`./handler/reactionBug.js`);
+    commandFile.run(l, Discord, bot, reaction, user);
   }
 });
 

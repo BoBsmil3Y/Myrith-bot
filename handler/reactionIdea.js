@@ -110,8 +110,12 @@ module.exports.run = async (l, Discord, bot, reaction, user) => {
         }
       }
     } else {
-      user.send(l.cantValidate);
-      reaction.message.reactions.forEach(reaction => reaction.remove(user.id));
+      if (reaction.message.embeds[0]) {
+        if (reaction.message.embeds[0].title !== l.wantToDelete) {
+          user.send(l.cantValidate);
+          reaction.message.reactions.forEach(reaction => reaction.remove(user.id));
+        }
+      }
     }
   }
 };

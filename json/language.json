@@ -24,7 +24,12 @@
     "suppCancel": "```Suppression annulée```",
     "cantValidate": "```Tu ne peux pas valider les idées !```",
     "cantValidateReport": "```Tu ne peux pas valider les reports !```",
+    "cantValidateBug": "```Tu ne peux pas valider les bugs !```",
+    "cantWipBug": "```Tu ne peux pas WIP les bugs !```",
     "cantDelete": "```Tu ne peux pas supprimer les idées des autres !```",
+    "cantDeleteBug": "```Tu ne peux pas supprimer les bugs des autres !```",
+    "bugFix": "```Le bug que tu as report s'est fait corriger ! Merci pour nous avoir prévenu de celui-ci !```",
+    "bugWip": "```Le bug que tu as report passe en WIP !```",
 
 
     "commandNotFound": "Cette commande n'existe pas ! ",

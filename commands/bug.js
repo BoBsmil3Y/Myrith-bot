@@ -5,6 +5,7 @@ module.exports.run = async (l, Discord, bot, m, args) => {
     const idBug = '605701379310485514';
     const checkEmoji = "620918371596369940";
     const crossEmoji = "621624110941995019";
+    const wipEmoji = "632172486812893184";
 
     if (m.channel.id === idBug) {
         if (args[0] != undefined && args[1] != undefined && args[2] != undefined) {
@@ -38,6 +39,7 @@ module.exports.run = async (l, Discord, bot, m, args) => {
             m.channel.send(bugEmbed).then(async embedMessage => {
 
                 await embedMessage.react(checkEmoji);
+                await embedMessage.react(wipEmoji);
                 await embedMessage.react(crossEmoji);
 
 
