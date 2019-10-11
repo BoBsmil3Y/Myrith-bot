@@ -1,4 +1,4 @@
-module.exports.run = async (l, Discord, data, bot, m, args) => {
+module.exports.run = async (l, Discord, bot, m, args) => {
   idFirst = "621786297022808064";
   instanceChannel = m.guild.channels.get(idFirst);
 

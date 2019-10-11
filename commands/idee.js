@@ -1,4 +1,4 @@
-module.exports.run = async (l, Discord, data, bot, m, args) => {
+module.exports.run = async (l, Discord, bot, m, args) => {
 
     var fs = require('fs');
     var data = JSON.parse(fs.readFileSync('Storage/ideaData.json', 'utf8'));
@@ -18,8 +18,8 @@ module.exports.run = async (l, Discord, data, bot, m, args) => {
 
             const IdeaEmbed = new Discord.RichEmbed()
                 .setColor('#ffc048')
-                .setTitle('Serveur :')
                 .setAuthor(m.author.username + ' annonce son idée, écoutez le !  Idée #' + data.total, m.author.avatarURL)
+                .setTitle('Serveur :')
                 .setDescription(args[0])
                 .addField('Idée :', args[1])
                 .addField('Description :', args[2])

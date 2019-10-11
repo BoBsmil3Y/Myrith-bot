@@ -10,15 +10,14 @@ const idIdea = "605049684192395264";
 const idBug = "605701379310485514";
 const idReglement = "605034442842439700";
 
-var fs = require("fs");
-var data = JSON.parse(fs.readFileSync("Storage/ideaData.json", "utf8"));
+
 
 bot.on("ready", () => {
+
   console.log("MyrithBot est en ligne !");
   bot.user.setActivity("#𝘗𝘓𝘈𝘠.𝘔𝘠𝘙𝘐𝘛𝘏.𝘍𝘙 🥳");
-});
 
-bot.login(config.token);
+});
 
 const events = {
   MESSAGE_REACTION_ADD: "messageReactionAdd",
@@ -37,19 +36,12 @@ bot.on("raw", async event => {
   if (channel.messages.has(data.message_id)) return;
 
   const message = await channel.fetchMessage(data.message_id);
-  const emojiKey = data.emoji.id ?
-    `${data.emoji.name}:${data.emoji.id}` :
-    data.emoji.name;
+  const emojiKey = data.emoji.id ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
   let reaction = message.reactions.get(emojiKey);
 
   if (!reaction) {
     const emoji = new Discord.Emoji(bot.guilds.get(data.guild_id), data.emoji);
-    reaction = new Discord.MessageReaction(
-      message,
-      emoji,
-      1,
-      data.user_id === bot.user.id
-    );
+    reaction = new Discord.MessageReaction(message, emoji, 1, data.user_id === bot.user.id);
   }
 
   bot.emit(events[event.t], reaction, user);
@@ -61,26 +53,25 @@ bot.on("message", async m => {
   if (m.content.includes("onlineStats") || m.content.includes("countStats"))
     return m.delete();
 
-
   if (m.content.charAt(0) !== prefix) {
     if (m.channel.id === idBug || m.channel.id === idIdea || m.channel.id === idReport) {
       m.author.send(l.noPrefix);
       m.delete();
     }
   } else {
-    const args =
-      m.content.slice(1).split(" ").shift() === "idée" ||
-      m.content.slice(1).split(" ").shift() === "bug" ||
-      m.content.slice(1).split(" ").shift() === "report" ? m.content.slice(config.prefix.length).split(" & ") : m.content.slice(config.prefix.length).split(" ");
+    const command = m.content.slice(1).split(" ").shift().toLowerCase().replace("é", "e").replace("è", "e");
 
-    const command = args.shift().toLowerCase().replace("é", "e").replace("è", "e");
+    const args = (command === "idee" || command === "bug" || command === "report" || command === "reglement" ?
+      m.content.slice(config.prefix.length + command.length + 3).split(" & ") : m.content.slice(config.prefix.length + command.length + 1).split(" "));
 
     try {
       let commandFile = require(`./commands/${command}.js`);
-      commandFile.run(l, Discord, data, bot, m, args);
+      commandFile.run(l, Discord, bot, m, args);
     } catch (error) {
       const emojis = m.guild.emojis.get("608273720208785419");
-      const errorEmbed = new Discord.RichEmbed().setTitle(l.commandNotFound + emojis).setColor("#ff5e57");
+      const errorEmbed = new Discord.RichEmbed()
+        .setTitle(l.commandNotFound + emojis)
+        .setColor("#ff5e57");
 
       m.channel.send(errorEmbed).then(msg => {
         msg.delete(5000);
@@ -141,22 +132,4 @@ bot.on("presenceUpdate", (oldMember, newMember) => {
   }
 });
 
-/*
-    
-TODO
-
-    EMBED:
-
-        IDEA / REPORT / BUG : 
-        - Add a reaction to delete it
-        - Add a reaction to approve it
-        
-        
-        BUG :
-        - Embed for bug issue
-
-
-    REACTION:
-        - Ajouter une réaction pour accepter les règles. (Myrith role: 605032955336851481)
-
-*/
+bot.login(config.token);

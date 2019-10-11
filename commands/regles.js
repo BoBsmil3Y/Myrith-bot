@@ -1,4 +1,4 @@
-module.exports.run = async (l, Discord, data, bot, m, args) => {
+module.exports.run = async (l, Discord, bot, m, args) => {
 
   const embed = new Discord.RichEmbed()
     .setColor('#0fbcf9')

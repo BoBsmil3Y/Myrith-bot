@@ -1,4 +1,4 @@
-module.exports.run = async (l, Discord, data, bot, m, args) => {
+module.exports.run = async (l, Discord, bot, m, args) => {
 
     var fs = require('fs');
     var data = JSON.parse(fs.readFileSync('Storage/reportData.json', 'utf8'));

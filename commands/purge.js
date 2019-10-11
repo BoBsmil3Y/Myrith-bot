@@ -1,4 +1,4 @@
-module.exports.run = async (l, Discord, data, bot, m, args) => {
+module.exports.run = async (l, Discord, bot, m, args) => {
 
   const idOwnerRole = "605040385173094410";
   const idAdminRole = "605022321496948757";
