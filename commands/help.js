@@ -8,6 +8,7 @@ module.exports.run = async (l, Discord, bot, m, args) => {
     .attachFiles(['img/command.png'])
     .setThumbnail('attachment://command.png')
     .addField("Légende :", "< > = optionel, non obligatoire | ! = préfix | !bug = commande | & = séparateur de section de la commande")
+    .addField("Effectuer les commandes dans les bons channels", "Les commandes s'effectue dans leur channel respectif (!bug => #bug) etc... Attention, aucune discussion ne peut être faite dans ses salons là !")
     .addBlankField()
     .addField("Exemple de report de bug avec !bug", "`!bug & serveur en question (Skyblock, Discord, Lobby) & titre de votre bug (ex: Mon beacon ne fonctionne plus.) & une description (ex: J'ai placé il y a un mois un beacon qui fontionnait parfaitement, et depuis peu, il ne s'active plus. J'ai essayé de le casser et le reposer mais ça ne marche pas) <& un lien si vous avez un screen à transmettre, il faut qu'il soit hébergé sur un site d'image ! (ex: https://imgur.com/a/TPVGESi)>`")
     .addBlankField()
