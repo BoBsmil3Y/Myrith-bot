@@ -21,8 +21,7 @@ module.exports.run = async (l, Discord, bot, m, args) => {
     .setTimestamp()
     .setFooter('Myrith - Liste des commandes', bot.user.avatarURL);
 
-  m.channel.send(embed);
-  //m.author.send(embed);
+  m.author.send(embed);
   m.delete();
 
 };
