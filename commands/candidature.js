@@ -10,11 +10,12 @@ module.exports.run = async (l, Discord, bot, m, args) => {
   /*
   TODO
 
-  - !candidature v
-  - Créer un salon avec seulement l'utilisateur et @admin @fonda
-  - Un message s'envoit pour lui expliquer comment utiliser ce channel (Des questions s'enverront, et tu devras y répondre)
-  - Tes réponses constituront ta candidature. Elle doit être soignée et vraie.
-  - A la fin des questions, 
+  ❌!candidature v
+
+  ✔️Créer un salon avec seulement l 'utilisateur et @admin @fonda
+  ❌Un message s 'envoit pour lui expliquer comment utiliser ce channel (Des questions s'enverront, et tu devras y répondre)
+  ❌Tes réponses constituront ta candidature.Elle doit être soignée et vraie.
+  ❌A la fin des questions,
 
   • !candidature
   • !candidature stop (pour arrêter le processus)
@@ -25,64 +26,43 @@ module.exports.run = async (l, Discord, bot, m, args) => {
 
     let idCategorie = "605021522096160798";
 
-    m.guild.createRole({
-      name: `candidature-${m.author.username}`,
-      color: '#1e272e',
-      mentionable: false
-    }).then(r => {
-      //let roleCandid = m.guild.roles.find(r => r.name === `candidature-${m.author.username}`);
-
-      m.member.addRole(r);
+    if (!m.guild.channels.find(c => c.name === `candidature-${m.author.id}`)) {
+      /* Si pas de salon */
 
       m.guild.createChannel(
-          `Candidature-${m.author.username}`, {
+          `candidature-${m.author.id}`, {
             type: 'text',
             topic: `Salon de candidature créé par ${m.author.username} | Id du joueur : ${m.author.id}`,
             parent: idCategorie,
+            permissionOverwrites: [{
+                id: m.guild.id,
+                deny: ['VIEW_CHANNEL'],
+              },
+              {
+                id: m.author.id,
+                allow: ['VIEW_CHANNEL'],
+              }
+            ]
           })
         .then((chan) => {
-          /* Everyone */
-          chan.overwritePermissions(m.guild.defaultRole, {
-            VIEW_CHANNEL: false
-          });
 
-          /* Myrithiens */
-          chan.overwritePermissions('605032955336851481', {
-            VIEW_CHANNEL: false
-          });
+          let help = new Discord.RichEmbed()
+            .setTitle(`Voici ton salon pour effectuer ta candidature.`)
+            .setDescription(`Attention, tu devras lire attentivement les questions et y répondre en environ 5 minutes maximum chacune. Autrement, ta candidature sera annulée et tu devras recommencer. Bonne chance <@${m.author.id}> !`)
+            .setThumbnail(bot.user.avatarURL)
+            .setTimestamp()
+            .setFooter(`Myrith - Candidature pour ${m.author.username}`)
+            .setColor("#0fbcf9");
 
-          /* VIP */
-          chan.overwritePermissions('605041596190294066', {
-            VIEW_CHANNEL: false
-          });
+          chan.send(help);
 
-          /* PARTENAIRE */
-          chan.overwritePermissions('615912141534265354', {
-            VIEW_CHANNEL: false
-          });
+          /* Mettre des await en attendant le message 'next' */
 
-          /* Staff */
-          chan.overwritePermissions('605041750968369166', {
-            VIEW_CHANNEL: false
-          });
-
-          chan.overwritePermissions(r.id, {
-            VIEW_CHANNEL: true
-          });
-
-          /* A la fin */
-          //chan.delete();
-        })
-        .catch(console.error);
-
-
-      /* A la fin */
-      //r.delete();
-    });
-
-
-
-
+        });
+    } else {
+      m.author.send("Vous avez déjà votre salon de candidature !")
+      m.delete();
+    }
 
   } else {
     m.author.send("Commande à entrer dans le salon adéquat !")
