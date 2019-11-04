@@ -135,5 +135,5 @@ bot.on("presenceUpdate", (oldMember, newMember) => {
   }
 });
 
-//bot.login(process.env.TOKEN);
-bot.login(config.token);
+bot.login(process.env.TOKEN);
+//bot.login(config.token);
