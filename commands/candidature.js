@@ -143,9 +143,6 @@ module.exports.run = async (l, Discord, bot, m, args) => {
 
       }); // End createChannel
 
-      // Delete the command
-      m.delete();
-
       // End if channel already exist
     } else {
       m.author.send("Vous avez déjà votre salon de candidature !");
