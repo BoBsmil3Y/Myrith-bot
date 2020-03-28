@@ -6,7 +6,7 @@ module.exports.run = async (bot, oldMember, newMember) => {
 
     if (oldMember.presence.status === 'offline' || newMember.presence.status === 'offline') {
 
-      var online = newMember.guild.members.filter(m => m.presence.status === 'online').size;
+      var online = newMember.guild.members.filter(m => m.presence.status === 'online' | m.presence.status === 'idle' | m.presence.status === 'dnd').size;
 
       if (online > 1) {
         guild.channels.get("618040386459533352").setName("🤵\u2009\u2009•\u2009\u2009" + online + "\u2009\u2009en\u2009lignes.");
