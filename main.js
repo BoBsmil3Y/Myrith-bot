@@ -136,4 +136,4 @@ bot.on("presenceUpdate", (oldMember, newMember) => {
 });
 
 //bot.login(process.env.TOKEN);
-bot.login("NjA1NDg5MTExNTQwNjk1MDQ5.Xn8JCQ.6lSLmLHJWdw7MQ8Gty3OY1GlhEg");
+bot.login(config.token);
