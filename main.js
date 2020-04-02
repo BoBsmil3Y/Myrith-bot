@@ -9,7 +9,7 @@ const idReport = "605702979156181005";
 const idIdea = "605049684192395264";
 const idBug = "605701379310485514";
 const idReglement = "605034442842439700";
-
+const idBob = "318004221809131521";
 
 
 bot.on("ready", () => {
@@ -50,26 +50,26 @@ bot.on("raw", async event => {
 bot.on("message", async m => {
   if (m.author.bot) return;
   if (m.channel.type === "dm") return;
-  if (m.content.includes("onlineStats") || m.content.includes("countStats"))
-    return m.delete();
+  if (m.content.includes("onlineStats") || m.content.includes("countStats")) return m.delete();
 
   if (m.content.charAt(0) !== prefix) {
     if (m.channel.id === idBug || m.channel.id === idIdea || m.channel.id === idReport) {
-      m.author.send(l.noPrefix);
-      m.delete();
+      if (m.author.id !== idBob) {
+        m.author.send(l.noPrefix);
+        m.delete();
+      }
     }
   } else {
     const command = m.content.slice(1).split(" ").shift().toLowerCase().replace("é", "e").replace("è", "e");
 
-    const args = (command === "idee" || command === "bug" || command === "report" || command === "reglement" ?
-      m.content.slice(config.prefix.length + command.length + 3).split(" & ") : m.content.slice(config.prefix.length + command.length + 1).split(" "));
+    const args = m.content.slice(config.prefix.length + command.length + 1).split(" ");
 
     try {
       let commandFile = require(`./commands/${command}.js`);
       commandFile.run(l, Discord, bot, m, args);
     } catch (error) {
-      const emojis = m.guild.emojis.get("608273720208785419");
-      const errorEmbed = new Discord.RichEmbed()
+      let emojis = m.guild.emojis.get("608273720208785419");
+      let errorEmbed = new Discord.RichEmbed()
         .setTitle(l.commandNotFound + emojis)
         .setColor("#ff5e57");
 
@@ -135,5 +135,5 @@ bot.on("presenceUpdate", (oldMember, newMember) => {
   }
 });
 
-bot.login(process.env.TOKEN);
-//bot.login(config.token);
+//bot.login(process.env.TOKEN);
+bot.login("NjA1NDg5MTExNTQwNjk1MDQ5.Xn8JCQ.6lSLmLHJWdw7MQ8Gty3OY1GlhEg");

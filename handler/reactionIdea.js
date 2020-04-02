@@ -1,7 +1,7 @@
 module.exports.run = async (l, Discord, bot, reaction, user) => {
 
   var fs = require("fs");
-  var data = JSON.parse(fs.readFileSync("Storage/ideaData.json", "utf8"));
+  var data = JSON.parse(fs.readFileSync("Storage/ideeData.json", "utf8"));
   const adminId = ["207884635839922177", "377878528475136001", "318004221809131521"];
   const confirmationEmbed = new Discord.RichEmbed().setTitle(l.wantToDelete).setFooter(l.wantToDeleteFooter).setColor("#0fbcf9");
   const checkEmoji = "620918371596369940";
@@ -29,7 +29,7 @@ module.exports.run = async (l, Discord, bot, reaction, user) => {
       }
     } else {
 
-      var data = JSON.parse(fs.readFileSync("Storage/ideaData.json", "utf8"));
+      var data = JSON.parse(fs.readFileSync("Storage/ideeData.json", "utf8"));
 
       for (let el of data.ideas) {
         if (el.idMessage === reaction.message.id) {
@@ -79,7 +79,7 @@ module.exports.run = async (l, Discord, bot, reaction, user) => {
       user.id === adminId[1] ||
       user.id === adminId[2]
     ) {
-      var data = JSON.parse(fs.readFileSync("Storage/ideaData.json", "utf8"));
+      var data = JSON.parse(fs.readFileSync("Storage/ideeData.json", "utf8"));
 
       for (let el of data.ideas) {
 

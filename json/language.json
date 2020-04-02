@@ -2,24 +2,18 @@
     "noPermission": "```Tu n'as pas la permission d'effectuer cette commande !```",
     "noPrefix": "```Vous ne pouvez pas envoyer de message dans ce canal. Si vous vouliez envoyer une idée, un bug, ou un report l'aide se trouve dans les messages épinglés du canal en question.```",
     "anError": "```Vous ne pouvez pas écrire dans ce canal. Utilisez l'aide qui se trouve dans les messages épinglés.```",
-
     "alreadyMyrithiens": "```Tu es déjà Myrithiens ! Pas la peine de t'acharner sur cette réaction !```",
-
     "purgeError": "```Veuillez indiquer un nombre entre 1 et 100.```",
     "purgeNotAll": "```Le seul argument possible autre qu'un nombre est 'all'.```",
-
     "reportNoArgs": "```Report incorrect ! Pour envoyer un report correct, il vous faut mettre le nom du joueur concerné, un titre, et une description qui sert d'explication au minimum.  Vous pouvez ajouter le lien d'un screen préalablement hébergé sur un site. Regarder dans les messages épinglés pour plus d'aide.```",
-
     "bugNoArgs": "```Bug incorrect ! Pour envoyer un bug correct, il vous faut mettre le nom du serveur concerné, un titre, et une description qui sert d'explication au minimum. Vous pouvez ajouter le lien d'un screen préalablement hébergé sur un site. Regarder dans les messages épinglés pour plus d'aide.```",
-
-    "ideaNoArgs": "```Idée incorrecte ! Pour envoyer une idée correcte, il vous faut mettre le nom du serveur concerné, un titre qui résume l'idée, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
-
+    "ideeNoArgs": "```Idée incorrecte ! Pour envoyer une idée correcte, il vous faut mettre le nom du serveur concerné, un titre qui résume l'idée, et une description qui sert d'explication au minimum. Regarder dans les messages épinglés pour plus d'aide.```",
     "wantToDelete": "Voulez-vous vraiment supprimer votre idée ?",
     "wantToDeleteReport": "Voulez-vous vraiment supprimer votre report ?",
     "wantToDeleteBug": "Voulez-vous vraiment supprimer votre bug ?",
     "wantToDeleteFooter": "Cliquez sur la réaction pour supprimer ou annuler.",
     "deleteReport": "```Tu as bien supprimé ton report```",
-    "deleteIdea": "```Tu as bien supprimé ton idée```",
+    "deleteidee": "```Tu as bien supprimé ton idée```",
     "deleteBug": "```Tu as bien supprimé ton bug```",
     "suppCancel": "```Suppression annulée```",
     "cantValidate": "```Tu ne peux pas valider les idées !```",
@@ -30,35 +24,46 @@
     "cantDeleteBug": "```Tu ne peux pas supprimer les bugs des autres !```",
     "bugFix": "```Le bug que tu as report s'est fait corriger ! Merci pour nous avoir prévenu de celui-ci !```",
     "bugWip": "```Le bug que tu as report passe en WIP !```",
-
-
     "commandNotFound": "Cette commande n'existe pas ! ",
+    "invalidUrl": "L'image n'est pas valide ! Tu dois d'abord l'envoyer sur Discord, et ensuite donner le lien ! Image ignorée ...",
 
-    "invalidUrl": "```L'image n'est pas valide ! Il faut que l'image soit hébergé sur un site et nous envoyez le lien donné (ex: noelshack, imgur ...).```",
+    "report": {
+        "1": "*Siffle* Mais quel carton l'arbitre va t'il lui donner ???",
+        "2": "Alerte alerte ! Un mauvais garçon !",
+        "3": "Tooum ! Le marteau va juger ce bougre !",
+        "4": "Quelle punition la balance nous donnera ?",
+        "5": "Ligotez moi ce malandrin !",
+        "6": "Carton jaune pour le joueur francais ! Le prochain, c'est le rouge !",
+        "7": "Emprisonnez moi ce malfrat !",
 
-    "report1": "*Siffle* Mais quel carton l'arbitre va t'il lui donner ???",
-    "report2": "Alerte alerte ! Un mauvais garçon !",
-    "report3": "Tooum ! Le marteau va juger ce bougre !",
-    "report4": "Quelle punition la balance nous donnera ?",
-    "report5": "Ligotez moi ce malandrin !",
-    "report6": "Carton jaune pour le joueur francais ! Le prochain, c'est le rouge !",
-    "report7": "Emprisonnez moi ce malfrat !",
+        "title": " report un mauvais bougre !  Report #"
+    },
+    "idee": {
+        "1": "Un cerveau dans une ampoule, elle même dans une boite, wait what ?!",
+        "2": "Le diplomé nous partage son savoir !",
+        "3": "Vioonnn ! L'idée arrive à dos de crayon ! Extraordinaire !",
+        "4": "Taking it out of the box",
+        "5": "*Shcling* Son ampoule s'allume. (enfin!)",
+        "6": "*Tziit* Son cerveau s'est mis en route !",
+        "7": "Il nous offre gracieusement cette idée, mohh quel sain.",
 
-    "idea1": "Un cerveau dans une ampoule, elle même dans une boite, wait what ?!",
-    "idea2": "Le diplomé nous partage son savoir !",
-    "idea3": "Vioonnn ! L'idée arrive à dos de crayon ! Extraordinaire !",
-    "idea4": "Taking it out of the box",
-    "idea5": "*Shcling* Son ampoule s'allume. (enfin!)",
-    "idea6": "*Tziit* Son cerveau s'est mis en route !",
-    "idea7": "Il nous offre gracieusement cette idée, mohh quel sain.",
-    "idea8": "*Click* Idée envoyée.",
+        "title": " annonce son idée, écoutez le !  Idée #"
+    },
+    "bug": {
+        "q1": "Sur quel serveur as-tu rencontré ce bug ? (skyblock, discord, lobby)",
+        "q2": "Quelle est la fonctionnalité concernée ? (menu, limites, commande '/commande' ...)",
+        "q3": "Détails comment a eu lieu le bug, et ce qu'il engendre.",
+        "q4": "As-tu un screenshot du bug ? (écrit 'non' si tu n'en as pas)",
+        "desc": "Si oui, il faut que ce soit un lien. Envoi le dans le salon partage, et ensuite, colle le lien pour y accéder. Si tu n'as pas de screenshot, ce n'est rien. C'est facultatif.",
 
-    "bug1": "Un bug c'est infiltré dans nos serveurs !",
-    "bug2": "Hmmm... 01101111 01110101 01100011 01101000",
-    "bug3": "Cherchons ce qui cause tout ce raffut",
-    "bug4": "Bip boup bip bip boup",
-    "bug5": "*Scrounch Scrounch Scrounch*",
-    "bug6": "Oulah, un panneau rouge, c'est forcément mauvais signe !",
-    "bug7": "*Doum doum doum* Une menace a été détecté !"
+        "1": "Un bug c'est infiltré dans nos serveurs !",
+        "2": "Hmmm... 01101111 01110101 01100011 01101000",
+        "3": "Cherchons ce qui cause tout ce raffut",
+        "4": "Bip boup bip bip boup",
+        "5": "*Scrounch Scrounch Scrounch*",
+        "6": "Oulah, un panneau rouge, c'est forcément mauvais signe !",
+        "7": "*Doum doum doum* Une menace a été détecté !",
 
+        "title": " déclare un bug !  Bug #"
+    }
 }
