@@ -6,8 +6,8 @@ module.exports.run = async (l, Discord, bot, m, command) => {
   const idCategorie = "605021522096160798";
 
   let question = new Discord.RichEmbed().setColor("#0fbcf9");
-  let questions = [l[command]["q1"], l[command]["q2"], l[command]["q3"], l[command]["q4"]]
-  let desc = (l[command]["desc"] !== null) ? l[command]["desc"] : undefined;
+  let questions = [l[command].questions["1"], l[command].questions["2"], l[command].questions["3"], l[command].questions["4"]]
+  let desc = (l[command].questions["desc"] !== null) ? l[command].questions["desc"] : undefined;
   var answers = [];
 
 
@@ -42,7 +42,6 @@ module.exports.run = async (l, Discord, bot, m, command) => {
       chan.send(firstMessage);
 
       const questionCall = async function () {
-        console.log(questions.length);
         for (i = 0; i < questions.length; i++) {
 
           questionEmbed = new Discord.RichEmbed().setTitle(questions[i]).setTimestamp().setFooter(`Myrith - Question n°${i+1}/${questions.length}`);

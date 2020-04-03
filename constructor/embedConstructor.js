@@ -59,6 +59,7 @@ module.exports.run = async (l, Discord, bot, m, answers, command) => {
         await embedMessage.react('608273708628574222');
       }
 
+      m.delete();
     });
 
   } else {
