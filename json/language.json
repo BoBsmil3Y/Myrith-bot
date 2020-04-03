@@ -28,6 +28,13 @@
     "invalidUrl": "L'image n'est pas valide ! Tu dois d'abord l'envoyer sur Discord, et ensuite donner le lien ! Image ignorée ...",
 
     "report": {
+        "questions": {
+            "1": "Sur quel serveur as-tu rencontré ce problème ? (skyblock, discord, lobby)",
+            "2": "Quel est le joueur concerné ? (pseudo IG et/ou Discord)",
+            "3": "Que s'est t'il passé ?.",
+            "4": "As-tu un screenshot du problème ? (écrit 'non' si tu n'en as pas)",
+            "desc": "Si oui, il faut que ce soit un lien. Envoi le dans le salon partage, et ensuite, colle le lien pour y accéder. Si tu n'as pas de screenshot, ce n'est rien. C'est facultatif."
+        },
         "1": "*Siffle* Mais quel carton l'arbitre va t'il lui donner ???",
         "2": "Alerte alerte ! Un mauvais garçon !",
         "3": "Tooum ! Le marteau va juger ce bougre !",
@@ -39,22 +46,33 @@
         "title": " report un mauvais bougre !  Report #"
     },
     "idee": {
+        "title": " annonce son idée, écoutez le !  Idée #",
+
+        "questions": {
+            "1": "Sur quel serveur voudrais-tu cette idée ? (skyblock, discord, lobby)",
+            "2": "Trouve un titre explicit et court (2-4 mots).",
+            "3": "Explique maintenant ton idée avec du détails.",
+            "4": "As-tu un screenshot de ton idée ? (écrit 'non' si tu n'en as pas | Attention à ne pas mettre d'IP ou de nom de serveur dans ton screenshot)",
+            "desc": "Si oui, il faut que ce soit un lien. Envoi le dans le salon partage, et ensuite, colle le lien pour y accéder. Si tu n'as pas de screenshot, ce n'est rien. C'est facultatif."
+        },
         "1": "Un cerveau dans une ampoule, elle même dans une boite, wait what ?!",
         "2": "Le diplomé nous partage son savoir !",
         "3": "Vioonnn ! L'idée arrive à dos de crayon ! Extraordinaire !",
         "4": "Taking it out of the box",
         "5": "*Shcling* Son ampoule s'allume. (enfin!)",
         "6": "*Tziit* Son cerveau s'est mis en route !",
-        "7": "Il nous offre gracieusement cette idée, mohh quel sain.",
-
-        "title": " annonce son idée, écoutez le !  Idée #"
+        "7": "Il nous offre gracieusement cette idée, mohh quel sain."
     },
     "bug": {
-        "q1": "Sur quel serveur as-tu rencontré ce bug ? (skyblock, discord, lobby)",
-        "q2": "Quelle est la fonctionnalité concernée ? (menu, limites, commande '/commande' ...)",
-        "q3": "Détails comment a eu lieu le bug, et ce qu'il engendre.",
-        "q4": "As-tu un screenshot du bug ? (écrit 'non' si tu n'en as pas)",
-        "desc": "Si oui, il faut que ce soit un lien. Envoi le dans le salon partage, et ensuite, colle le lien pour y accéder. Si tu n'as pas de screenshot, ce n'est rien. C'est facultatif.",
+        "title": " déclare un bug !  Bug #",
+
+        "questions": {
+            "1": "Sur quel serveur as-tu rencontré ce bug ? (skyblock, discord, lobby)",
+            "2": "Quelle est la fonctionnalité concernée ? (menu, limites, commande '/commande' ...)",
+            "3": "Détails comment a eu lieu le bug, et ce qu'il engendre.",
+            "4": "As-tu un screenshot du bug ? (écrit 'non' si tu n'en as pas)",
+            "desc": "Si oui, il faut que ce soit un lien. Envoi le dans le salon partage, et ensuite, colle le lien pour y accéder. Si tu n'as pas de screenshot, ce n'est rien. C'est facultatif."
+        },
 
         "1": "Un bug c'est infiltré dans nos serveurs !",
         "2": "Hmmm... 01101111 01110101 01100011 01101000",
@@ -62,8 +80,6 @@
         "4": "Bip boup bip bip boup",
         "5": "*Scrounch Scrounch Scrounch*",
         "6": "Oulah, un panneau rouge, c'est forcément mauvais signe !",
-        "7": "*Doum doum doum* Une menace a été détecté !",
-
-        "title": " déclare un bug !  Bug #"
+        "7": "*Doum doum doum* Une menace a été détecté !"
     }
 }
