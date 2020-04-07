@@ -4,6 +4,9 @@ module.exports.run = async (l, Discord, bot, m, args) => {
 
   if (m.member.roles.find(r => r.name.toLowerCase().includes("admin")) || m.member.roles.find(r => r.name.toLowerCase().includes("fonda"))) {
 
+    const command = m.content.slice(1).split(" ").shift().toLowerCase().replace("é", "e").replace("è", "e");
+
+    const args = m.content.slice(10).split("&");
 
     let rulesEmbed = new Discord.RichEmbed()
       .setColor("#5f27cd")
