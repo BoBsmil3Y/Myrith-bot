@@ -16,6 +16,7 @@ bot.on("ready", () => {
 
   console.log("MyrithBot est en ligne !");
   bot.user.setActivity("#𝘗𝘓𝘈𝘠.𝘔𝘠𝘙𝘐𝘛𝘏.𝘍𝘙 🥳");
+  bot.emit("guildMemberAdd", bot);
 
 });
 
@@ -111,7 +112,7 @@ bot.on("messageReactionRemove", (reaction, user) => {
 bot.on("guildMemberAdd", member => {
   try {
     let commandFile = require(`./handler/guildMemberRemove.js`);
-    commandFile.run(bot, member);
+    commandFile.run(bot);
   } catch (error) {
     console.error(error);
   }

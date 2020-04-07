@@ -1,4 +1,4 @@
-module.exports.run = async (bot, member) => {
+module.exports.run = async (bot) => {
 
   const guild = bot.guilds.get("605021521467146279");
 
