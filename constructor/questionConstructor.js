@@ -29,7 +29,7 @@ module.exports.run = async (l, Discord, bot, m, command) => {
         }]
       }).then(chan => {
 
-      m.reply(`Un salon a été créé pour que tu puisses nous donner des informations à propos de ton ${command}, <#${chan.id}>`).then(m => m.delete(5000));
+      m.reply(`Un salon a été créé pour que tu puisses nous donner des informations à propos de ton ${command}, <#${chan.id}>`).then(m => m.delete(8000));
 
       let firstMessage = new Discord.RichEmbed()
         .setTitle(`Voici ton salon pour effectuer ton ${command}.`)
